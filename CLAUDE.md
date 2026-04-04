@@ -290,5 +290,6 @@ committer <name> <<email>> <unix-timestamp> <timezone>
 
 - Architecture and data structure design: complete (2026-04-05)
 - Documentation (CLAUDE.md, README.md, docs/DECISIONS.md): complete (2026-04-05)
-- Implementation: not started
-- Next step: `utils/hash.ts` and `utils/compress.ts` — pure functions, first tests
+- Project scaffolding complete (2026-04-05): package.json, tsconfig.json, tsconfig.eslint.json, vitest.config.ts, eslint.config.js, .prettierrc, .prettierignore, .gitignore
+- `utils/` layer complete (2026-04-05): hash.ts, compress.ts, fs.ts — 21 tests, all passing
+- Next step: `src/objects/` layer — types.ts, blob.ts, tree.ts, commit.ts
