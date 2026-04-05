@@ -1,14 +1,12 @@
 # gitinit
 
-A simplified but honest Git implementation in TypeScript, built from scratch to understand Git's internals — not as a tutorial exercise, but as a genuine exploration of how content-addressable storage, immutable object graphs, and ref-based branching actually work.
+A Git implementation in TypeScript, built from scratch. Real SHA-1 hashing, zlib compression, the full object model (blob/tree/commit), a staging index, branching, history traversal, and diff. Built to understand how Git actually works, not to replace it.
 
 ---
 
 ## Why This Exists
 
-Most "build your own Git" tutorials stop at blobs and a single commit. This project goes further: a working object store with real SHA-1 hashing and zlib compression, a staging index, branching, history traversal, working tree diffing, and eventually merge.
-
-The goal is depth over completeness. Every design decision is documented. Every simplification relative to real Git is called out explicitly. This is a portfolio project and a learning artifact — not a Git replacement.
+Most "build your own Git" resources stop at a single blob and commit. This project goes further — working object store, staging index, branching, history traversal, working tree diffing, and eventually merge. Every architectural decision is documented in [docs/DECISIONS.md](docs/DECISIONS.md).
 
 ---
 
@@ -121,22 +119,18 @@ No runtime dependencies beyond Commander. The core object model, storage, and ha
 
 ## Simplifications vs Real Git
 
-gitinit is honest about where it differs from real Git. These are not accidents or oversights — each is a deliberate tradeoff documented in [docs/DECISIONS.md](docs/DECISIONS.md).
-
 | Area | gitinit | Real Git |
 |------|--------|----------|
 | **Index format** | JSON | Binary format with 62-byte fixed headers and stat cache fields (ctime, mtime, dev, ino, uid, gid, flags) |
-| **Object packing** | Loose objects only — one file per object | Pack files: multiple objects bundled with delta compression, created by `git gc` |
+| **Object packing** | Loose objects only | Pack files with delta compression, created by `git gc` |
 | **Configuration** | Not implemented — identity via env vars | Multi-scope INI config: system, global, local, worktree |
 | **Hash algorithm** | SHA-1 | SHA-1 or SHA-256 (selectable since Git 2.29) |
-| **Merge** | Basic (planned) | Recursive 3-way merge with conflict markers, rename detection, and strategy plugins |
+| **Merge** | Basic (planned) | Recursive 3-way merge with conflict markers and rename detection |
 | **Remotes** | Not implemented | Push, fetch, pull, remote tracking refs, refspecs |
-| **Annotated tags** | Not implemented | 4th object type, wraps a commit with additional metadata |
+| **Annotated tags** | Not implemented | 4th object type wrapping a commit with additional metadata |
 | **Submodules** | Not implemented | Gitlink tree entries referencing external repositories |
 | **Worktrees** | Not implemented | Multiple working trees sharing one object store |
-| **Hooks** | Not implemented | Shell scripts invoked at lifecycle events (pre-commit, post-commit, etc.) |
-
-The index format and pack files are the two most significant simplifications. Both are implementation-detail optimizations over a conceptual model that gitinit implements correctly.
+| **Hooks** | Not implemented | Shell scripts invoked at lifecycle events |
 
 ---
 

@@ -292,4 +292,7 @@ committer <name> <<email>> <unix-timestamp> <timezone>
 - Documentation (CLAUDE.md, README.md, docs/DECISIONS.md): complete (2026-04-05)
 - Project scaffolding complete (2026-04-05): package.json, tsconfig.json, tsconfig.eslint.json, vitest.config.ts, eslint.config.js, .prettierrc, .prettierignore, .gitignore
 - `utils/` layer complete (2026-04-05): hash.ts, compress.ts, fs.ts — 21 tests, all passing
-- Next step: `src/objects/` layer — types.ts, blob.ts, tree.ts, commit.ts
+- `objects/` layer complete (2026-04-05): types.ts, blob.ts, tree.ts, commit.ts — 32 tests, all passing
+- `store/` layer complete (2026-04-05): object-store.ts — 13 tests, all passing; blob hash cross-verified against real Git
+- `refs/` layer complete (2026-04-05): ref-store.ts — 16 tests, all passing
+- Next step: `src/index/` layer — index-manager.ts (staging area)
