@@ -295,4 +295,7 @@ committer <name> <<email>> <unix-timestamp> <timezone>
 - `objects/` layer complete (2026-04-05): types.ts, blob.ts, tree.ts, commit.ts — 32 tests, all passing
 - `store/` layer complete (2026-04-05): object-store.ts — 13 tests, all passing; blob hash cross-verified against real Git
 - `refs/` layer complete (2026-04-05): ref-store.ts — 16 tests, all passing
-- Next step: `src/index/` layer — index-manager.ts (staging area)
+- `index/` layer complete (2026-04-06): index-manager.ts — 13 tests, all passing
+- `repository.ts` complete (2026-04-06): central DI context wiring all subsystems
+- `commands/init`, `commands/add`, `commands/commit` complete (2026-04-06): 23 tests, all passing; full stack exercised end-to-end
+- Next step: `commands/log`, `commands/status`
