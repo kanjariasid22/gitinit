@@ -119,4 +119,3 @@ function makeSignature(): GitSignature {
     timezone: '+0000',
   }
 }
-

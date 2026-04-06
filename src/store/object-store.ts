@@ -114,6 +114,8 @@ function deserializeByType(
     case 'commit':
       return deserializeCommit(content)
     default:
-      throw new Error(`Unknown object type "${type as string}" in object ${hash}`)
+      throw new Error(
+        `Unknown object type "${type as string}" in object ${hash}`,
+      )
   }
 }

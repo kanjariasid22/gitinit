@@ -83,10 +83,7 @@ export class IndexManager {
    *
    * Returns true if the file appears unchanged (no need to rehash).
    */
-  async isUnchanged(
-    entry: IndexEntry,
-    absolutePath: string,
-  ): Promise<boolean> {
+  async isUnchanged(entry: IndexEntry, absolutePath: string): Promise<boolean> {
     try {
       const fileStat = await stat(absolutePath)
       return fileStat.mtimeMs === entry.mtime && fileStat.size === entry.size

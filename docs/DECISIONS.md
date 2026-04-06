@@ -368,6 +368,29 @@ Use Vitest.
 
 ---
 
+### [DECISION-016] Merge: LCS-Based Diff3, No Rename Detection
+
+**Date:** 2026-04-06
+**Status:** Accepted
+
+**Context:**
+Real Git's merge uses the recursive strategy (or the newer `ort` strategy): it finds the merge base via LCA, performs three-way diffs with rename detection, and resolves conflicts using a diff3-style algorithm. Rename detection requires comparing file content similarity across paths, which is a significant additional algorithm.
+
+**Decision:**
+Implement three-way merge using LCS-based diff for line-level comparison, without rename detection. The merge base is found via BFS over the commit graph. Fast-forward and up-to-date detection are handled before the three-way path. Conflict markers follow the standard `<<<<<<<`/`=======`/`>>>>>>>` format.
+
+**Alternatives considered:**
+- Myers diff algorithm — produces the same correct output as LCS for merge purposes; LCS is simpler to implement and reason about
+- Rename detection — would require similarity scoring across all file pairs; adds significant complexity for an edge case
+- No merge at all — ruled out as merge is a core Git concept worth implementing
+
+**Consequences:**
+- Renamed files will appear as a deletion + addition rather than a rename, which may cause unnecessary conflicts
+- The LCS algorithm is O(m×n) in the lengths of the compared files — acceptable for typical source files
+- Conflict markers are written to disk; user must resolve manually and commit
+
+---
+
 ### [DECISION-015] Checkout: Hard Switch, No Three-Way Merge
 
 **Date:** 2026-04-06

@@ -33,10 +33,7 @@ export async function status(repo: Repository): Promise<StatusResult> {
   const headTree = await resolveHeadTree(repo)
 
   const staged = computeStagedChanges(headTree, index)
-  const { unstaged, untracked } = await computeWorkingDirChanges(
-    repo,
-    index,
-  )
+  const { unstaged, untracked } = await computeWorkingDirChanges(repo, index)
 
   return { staged, unstaged, untracked }
 }

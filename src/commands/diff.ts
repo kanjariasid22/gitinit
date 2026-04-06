@@ -55,9 +55,7 @@ export async function diff(repo: Repository): Promise<FileDiff[]> {
       continue
     }
 
-    if (diskContent.equals(
-      await getBlobContent(repo, entry.hash),
-    )) continue
+    if (diskContent.equals(await getBlobContent(repo, entry.hash))) continue
 
     const oldContent = await getBlobContent(repo, entry.hash)
     results.push(buildFileDiff(path, oldContent, diskContent, 'modified'))
@@ -189,11 +187,7 @@ function computeLCS(a: string[], b: string[]): number[][] {
 /**
  * Trace back through the LCS table to produce a list of Change records.
  */
-function buildChangeList(
-  a: string[],
-  b: string[],
-  dp: number[][],
-): Change[] {
+function buildChangeList(a: string[], b: string[], dp: number[][]): Change[] {
   const changes: Change[] = []
   let i = a.length
   let j = b.length
@@ -270,10 +264,7 @@ function groupIntoHunks(
 // Helpers
 // ---------------------------------------------------------------------------
 
-async function getBlobContent(
-  repo: Repository,
-  hash: string,
-): Promise<Buffer> {
+async function getBlobContent(repo: Repository, hash: string): Promise<Buffer> {
   const obj = await repo.objectStore.readObject(hash)
   if (obj.type !== 'blob') throw new Error(`Expected blob: ${hash}`)
   return obj.content

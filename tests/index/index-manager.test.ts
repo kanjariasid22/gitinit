@@ -55,7 +55,13 @@ describe('IndexManager', () => {
       const file = join(tmp, 'hello.txt')
       await writeFile(file, 'hello')
 
-      const index = await manager.stageFile({}, 'hello.txt', HASH_A, '100644', file)
+      const index = await manager.stageFile(
+        {},
+        'hello.txt',
+        HASH_A,
+        '100644',
+        file,
+      )
       expect(index['hello.txt'].hash).toBe(HASH_A)
       expect(index['hello.txt'].mode).toBe('100644')
     })
@@ -65,7 +71,13 @@ describe('IndexManager', () => {
       await writeFile(file, 'hello world')
       const fileStat = await stat(file)
 
-      const index = await manager.stageFile({}, 'hello.txt', HASH_A, '100644', file)
+      const index = await manager.stageFile(
+        {},
+        'hello.txt',
+        HASH_A,
+        '100644',
+        file,
+      )
       expect(index['hello.txt'].mtime).toBe(fileStat.mtimeMs)
       expect(index['hello.txt'].size).toBe(fileStat.size)
     })
@@ -156,9 +168,9 @@ describe('IndexManager', () => {
         mtime: 1000,
         size: 42,
       }
-      expect(
-        await manager.isUnchanged(entry, join(tmp, 'ghost.txt')),
-      ).toBe(false)
+      expect(await manager.isUnchanged(entry, join(tmp, 'ghost.txt'))).toBe(
+        false,
+      )
     })
   })
 })

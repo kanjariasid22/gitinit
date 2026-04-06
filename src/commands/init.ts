@@ -13,9 +13,7 @@ export async function init(rootPath: string): Promise<Repository> {
   const existing = await readFileMaybe(join(gitDirPath, 'HEAD'))
 
   if (existing !== null) {
-    throw new Error(
-      `Already a gitinit repository: ${gitDirPath}`,
-    )
+    throw new Error(`Already a gitinit repository: ${gitDirPath}`)
   }
 
   return Repository.init(rootPath)

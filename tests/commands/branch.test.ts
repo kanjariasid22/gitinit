@@ -33,9 +33,7 @@ async function makeCommit(name = 'a.txt'): Promise<string> {
 describe('branch command', () => {
   describe('createBranch', () => {
     it('throws on an unborn repo', async () => {
-      await expect(createBranch(repo, 'feature')).rejects.toThrow(
-        'unborn',
-      )
+      await expect(createBranch(repo, 'feature')).rejects.toThrow('unborn')
     })
 
     it('creates a branch pointing at HEAD', async () => {

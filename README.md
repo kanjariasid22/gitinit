@@ -64,12 +64,11 @@ Moving a branch forward means overwriting that file with a new hash. Creating a 
 | `gitinit checkout <hash>` | Enter detached HEAD at a commit | Done |
 | `gitinit diff` | Show unstaged changes | Done |
 | `gitinit diff --staged` | Show staged changes vs HEAD | Done |
+| `gitinit merge <branch>` | Merge a branch into the current branch | Done |
 
 ---
 
 ## Installation
-
-> Implementation is in progress. These instructions will be updated as commands are completed.
 
 **Prerequisites:** Node.js 20+
 
@@ -125,7 +124,7 @@ No runtime dependencies beyond Commander. The core object model, storage, and ha
 | **Object packing** | Loose objects only | Pack files with delta compression, created by `git gc` |
 | **Configuration** | Not implemented — identity via env vars | Multi-scope INI config: system, global, local, worktree |
 | **Hash algorithm** | SHA-1 | SHA-1 or SHA-256 (selectable since Git 2.29) |
-| **Merge** | Basic (planned) | Recursive 3-way merge with conflict markers and rename detection |
+| **Merge** | LCS-based diff3, no rename detection | Recursive 3-way merge with conflict markers and rename detection |
 | **Remotes** | Not implemented | Push, fetch, pull, remote tracking refs, refspecs |
 | **Annotated tags** | Not implemented | 4th object type wrapping a commit with additional metadata |
 | **Submodules** | Not implemented | Gitlink tree entries referencing external repositories |

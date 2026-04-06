@@ -15,10 +15,7 @@ import type { Repository } from '../repository'
  *
  * Real Git also resolves symlinks and handles gitignore here. We skip both.
  */
-export async function add(
-  repo: Repository,
-  targetPath: string,
-): Promise<void> {
+export async function add(repo: Repository, targetPath: string): Promise<void> {
   let index = await repo.indexManager.readIndex()
   index = await addPath(repo, targetPath, index)
   await repo.indexManager.writeIndex(index)
