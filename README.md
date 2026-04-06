@@ -60,8 +60,8 @@ Moving a branch forward means overwriting that file with a new hash. Creating a 
 | `gitinit branch <name>` | Create a branch | Done |
 | `gitinit branch -l` | List branches | Done |
 | `gitinit branch -d <name>` | Delete a branch | Done |
-| `gitinit checkout <branch>` | Switch branches | TODO |
-| `gitinit checkout <hash>` | Enter detached HEAD at a commit | TODO |
+| `gitinit checkout <branch>` | Switch branches | Done |
+| `gitinit checkout <hash>` | Enter detached HEAD at a commit | Done |
 | `gitinit diff` | Show unstaged changes | TODO |
 | `gitinit diff --staged` | Show staged changes vs HEAD | TODO |
 

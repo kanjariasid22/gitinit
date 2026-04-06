@@ -300,4 +300,5 @@ committer <name> <<email>> <unix-timestamp> <timezone>
 - `commands/init`, `commands/add`, `commands/commit` complete (2026-04-06): 23 tests, all passing; full stack exercised end-to-end
 - `commands/log`, `commands/status` complete (2026-04-06): 19 tests, all passing
 - `commands/branch` complete (2026-04-06): 9 tests, all passing
-- Next step: `commands/checkout`
+- `commands/checkout` complete (2026-04-06): 9 tests, all passing
+- Next step: `commands/diff`

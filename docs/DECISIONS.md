@@ -368,6 +368,28 @@ Use Vitest.
 
 ---
 
+### [DECISION-015] Checkout: Hard Switch, No Three-Way Merge
+
+**Date:** 2026-04-06
+**Status:** Accepted
+
+**Context:**
+When switching branches, real Git performs a three-way merge between the current working tree, the current HEAD, and the target branch. This preserves local modifications that don't conflict with the target branch, and refuses to switch if there are conflicts. Implementing this correctly requires the full diff/merge machinery.
+
+**Decision:**
+Checkout does a hard switch: remove all tracked files from the working directory, then restore the target tree verbatim. Untracked files are left untouched.
+
+**Alternatives considered:**
+- Three-way merge on checkout — correct but requires the merge engine, which is the last and most complex feature
+- Refuse checkout if working tree is dirty — safer but blocks a common workflow
+
+**Consequences:**
+- Uncommitted changes to tracked files are silently lost on checkout — same as `git checkout --force`
+- Simpler implementation: no dependency on merge logic
+- Must be documented as a known simplification
+
+---
+
 ### [DECISION-014] Implementation Order: Layer-by-Layer, Bottom-Up
 
 **Date:** 2026-04-05
