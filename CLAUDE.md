@@ -299,4 +299,5 @@ committer <name> <<email>> <unix-timestamp> <timezone>
 - `repository.ts` complete (2026-04-06): central DI context wiring all subsystems
 - `commands/init`, `commands/add`, `commands/commit` complete (2026-04-06): 23 tests, all passing; full stack exercised end-to-end
 - `commands/log`, `commands/status` complete (2026-04-06): 19 tests, all passing
-- Next step: `commands/branch`, `commands/checkout`, `commands/diff`
+- `commands/branch` complete (2026-04-06): 9 tests, all passing
+- Next step: `commands/checkout`
