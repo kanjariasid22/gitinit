@@ -302,4 +302,6 @@ committer <name> <<email>> <unix-timestamp> <timezone>
 - `commands/branch` complete (2026-04-06): 9 tests, all passing
 - `commands/checkout` complete (2026-04-06): 9 tests, all passing
 - `commands/diff` complete (2026-04-06): 14 tests, all passing; LCS-based line diff algorithm
-- Next step: `src/cli.ts` (wire commands into Commander), then `merge`
+- `src/cli.ts` complete (2026-04-06): all commands wired into Commander; smoke-tested end-to-end
+- Module system changed from ESM (`"type": "module"`) to CommonJS to avoid Node ESM `.js` extension requirement in compiled output
+- Next step: `merge`

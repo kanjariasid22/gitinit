@@ -2,7 +2,6 @@
   "name": "gitinit",
   "version": "0.1.0",
   "description": "A simplified Git implementation in TypeScript, built for learning.",
-  "type": "module",
   "bin": {
     "gitinit": "./dist/cli.js"
   },
