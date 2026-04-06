@@ -55,8 +55,8 @@ Moving a branch forward means overwriting that file with a new hash. Creating a 
 | `gitinit init` | Initialize a `.gitinit/` directory | Done |
 | `gitinit add <path>` | Stage a file or directory | Done |
 | `gitinit commit -m <msg>` | Create a commit from the current index | Done |
-| `gitinit log` | Walk and display the commit history | TODO |
-| `gitinit status` | Show staged, unstaged, and untracked changes | TODO |
+| `gitinit log` | Walk and display the commit history | Done |
+| `gitinit status` | Show staged, unstaged, and untracked changes | Done |
 | `gitinit branch <name>` | Create a branch | TODO |
 | `gitinit branch -l` | List branches | TODO |
 | `gitinit branch -d <name>` | Delete a branch | TODO |

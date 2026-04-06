@@ -298,4 +298,5 @@ committer <name> <<email>> <unix-timestamp> <timezone>
 - `index/` layer complete (2026-04-06): index-manager.ts — 13 tests, all passing
 - `repository.ts` complete (2026-04-06): central DI context wiring all subsystems
 - `commands/init`, `commands/add`, `commands/commit` complete (2026-04-06): 23 tests, all passing; full stack exercised end-to-end
-- Next step: `commands/log`, `commands/status`
+- `commands/log`, `commands/status` complete (2026-04-06): 19 tests, all passing
+- Next step: `commands/branch`, `commands/checkout`, `commands/diff`
