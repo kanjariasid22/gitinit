@@ -301,4 +301,5 @@ committer <name> <<email>> <unix-timestamp> <timezone>
 - `commands/log`, `commands/status` complete (2026-04-06): 19 tests, all passing
 - `commands/branch` complete (2026-04-06): 9 tests, all passing
 - `commands/checkout` complete (2026-04-06): 9 tests, all passing
-- Next step: `commands/diff`
+- `commands/diff` complete (2026-04-06): 14 tests, all passing; LCS-based line diff algorithm
+- Next step: `src/cli.ts` (wire commands into Commander), then `merge`
