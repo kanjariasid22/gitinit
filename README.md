@@ -153,9 +153,3 @@ No runtime dependencies beyond Commander. The core object model, storage, and ha
 ## Internals
 
 A technical deep-dive into the object model, wire formats, storage layout, and command internals is in [docs/internals.md](docs/internals.md). Architectural decisions are in [docs/decisions.md](docs/decisions.md).
-
----
-
-## License
-
-MIT
