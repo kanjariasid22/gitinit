@@ -26,8 +26,8 @@ program
 // ---------------------------------------------------------------------------
 
 program
-  .command('init')
-  .description('Initialize a new repository')
+  .command('new')
+  .description('Initialize a new repository in the current directory')
   .action(async () => {
     await run(async () => {
       await init(cwd())

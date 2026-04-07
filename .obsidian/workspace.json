@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "docs/DECISIONS.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for README"
+              "title": "Backlinks for DECISIONS"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
+                "file": "docs/DECISIONS.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from README"
+              "title": "Outgoing links from DECISIONS"
             }
           },
           {
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md",
+                "file": "docs/DECISIONS.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of README"
+              "title": "Outline of DECISIONS"
             }
           }
         ]
@@ -185,6 +185,20 @@
   },
   "active": "441119c465d4efc1",
   "lastOpenFiles": [
+    "docs/internals.md.tmp.19324.1775539268449",
+    "README.md.tmp.19324.1775539253386",
+    "README.md.tmp.19324.1775539240005",
+    "src/cli.ts.tmp.19324.1775539233739",
+    "CLAUDE.md.tmp.19324.1775539033340",
+    "package.json.tmp.19324.1775539011734",
+    "README.md.tmp.19324.1775539002570",
+    "README.md.tmp.19324.1775538995026",
+    "README.md.tmp.19324.1775538985604",
+    "docs/internals.md",
+    "docs/internals.md.tmp.19324.1775538943100",
+    "docs/usage.md",
+    "docs/DECISIONS.md",
+    "README.md",
     "CLAUDE.md"
   ]
 }

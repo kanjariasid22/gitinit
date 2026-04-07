@@ -307,3 +307,8 @@ committer <name> <<email>> <unix-timestamp> <timezone>
 - `commands/merge` complete (2026-04-06): 15 tests, all passing
 - `src/cli.ts` updated with merge command
 - Implementation complete: 184 tests across 18 test files, all passing
+- `docs/internals.md` written from source (2026-04-07): technical deep-dive on storage, object model, index, refs, all command internals, and simplifications table
+- `docs/usage.md` deleted — redundant with README
+- README cleaned up: internals link resolved, removed empty "What I Learned" section, placeholder GitHub URL noted
+- `package.json` version bumped to 1.0.0
+- Possible future improvement: chalk for colored CLI output

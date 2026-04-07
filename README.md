@@ -52,7 +52,7 @@ Moving a branch forward means overwriting that file with a new hash. Creating a 
 
 | Command | Description | Status |
 |---------|-------------|--------|
-| `gitinit init` | Initialize a `.gitinit/` directory | Done |
+| `gitinit new` | Initialize a `.gitinit/` directory | Done |
 | `gitinit add <path>` | Stage a file or directory | Done |
 | `gitinit commit -m <msg>` | Create a commit from the current index | Done |
 | `gitinit log` | Walk and display the commit history | Done |
@@ -73,7 +73,7 @@ Moving a branch forward means overwriting that file with a new hash. Creating a 
 **Prerequisites:** Node.js 20+
 
 ```bash
-git clone https://github.com/yourusername/gitinit
+git clone https://github.com/<your-username>/gitinit
 cd gitinit
 npm install
 npm run build
@@ -84,7 +84,7 @@ npm link       # makes `gitinit` available globally
 
 ```bash
 mkdir my-project && cd my-project
-gitinit init
+gitinit new
 echo "hello" > hello.txt
 gitinit add hello.txt
 gitinit commit -m "initial commit"
@@ -135,29 +135,11 @@ No runtime dependencies beyond Commander. The core object model, storage, and ha
 
 ## Internals
 
-A deeper walkthrough of the object model, wire formats, and storage layout is in [docs/internals.md](docs/internals.md) (TODO).
+A technical deep-dive into the object model, wire formats, storage layout, and
+command internals is in [docs/internals.md](docs/internals.md).
 
-**Highlights:**
-
-- **Blob serialization:** `"blob <N>\0<content>"` — hashed, then stored zlib-compressed
-- **Tree serialization:** Binary entries: `"<mode> <name>\0<20-byte-raw-hash>"` — sorted by name, matches real Git's format exactly so hashes are reproducible
-- **Commit serialization:** Plain text with `tree`, `parent`, `author`, `committer`, and message fields — matches real Git's format exactly
-- **Ref resolution:** `HEAD` → branch ref file → commit hash, with detached HEAD support
-
-The architectural decisions behind every one of these choices are in [docs/DECISIONS.md](docs/DECISIONS.md).
-
----
-
-## What I Learned
-
-> This section will be filled in as implementation progresses.
-
-Planned topics:
-- Why content-addressable storage makes deduplication and integrity verification free
-- How the three-object model (blob/tree/commit) is sufficient to represent arbitrary filesystem snapshots and full history
-- Why branches are just pointers and what that implies for branching cost
-- How the index enables a three-way comparison (HEAD vs index vs working tree) that powers `git status`
-- How merge works at the object level: finding the common ancestor, applying two diffs, detecting conflicts
+The architectural decisions behind every design choice are in
+[docs/DECISIONS.md](docs/DECISIONS.md).
 
 ---
 
