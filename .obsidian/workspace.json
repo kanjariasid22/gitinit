@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "0de7977b349b3285",
+        "id": "d4945a3fb2e65c23",
         "type": "tabs",
         "children": [
           {
-            "id": "441119c465d4efc1",
+            "id": "9651a45807691ff5",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "docs/decisions.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "decisions"
             }
           }
         ]
@@ -183,23 +183,24 @@
       "bases:Create new base": false
     }
   },
-  "active": "7020583abbf685a6",
+  "active": "9651a45807691ff5",
   "lastOpenFiles": [
+    "CLAUDE.md.tmp.25240.1775542734094",
+    "CLAUDE.md.tmp.25240.1775542718540",
+    "CLAUDE.md.tmp.25240.1775542707699",
+    "docs/decisions.md",
+    "README.md.tmp.25240.1775542675112",
+    "README.md.tmp.25240.1775542667451",
+    "README.md",
+    "CLAUDE.md",
     "README.md.tmp.23612.1775540191022",
     "README.md.tmp.23612.1775540063941",
     "docs/internals.md.tmp.23612.1775540055687",
     "src/commands/add.ts.tmp.23612.1775539949328",
     "docs/internals.md.tmp.19324.1775539268449",
     "README.md.tmp.19324.1775539253386",
-    "README.md.tmp.19324.1775539240005",
-    "src/cli.ts.tmp.19324.1775539233739",
-    "CLAUDE.md.tmp.19324.1775539033340",
-    "package.json.tmp.19324.1775539011734",
-    "README.md.tmp.19324.1775539002570",
     "docs/internals.md",
     "docs/usage.md",
-    "docs/DECISIONS.md",
-    "README.md",
-    "CLAUDE.md"
+    "docs/DECISIONS.md"
   ]
 }

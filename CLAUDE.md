@@ -19,7 +19,7 @@ This is a **learning-first, portfolio-worthy** project. That means:
 - **Explain concepts before implementing them.** The user wants to understand why, not just what. Before writing any non-trivial code, explain the concept it implements and where real Git differs.
 - **Faithful where it matters, simplified where it doesn't.** The object format, SHA hashing, and zlib compression are kept real. The index format is simplified. That line matters.
 - **Push back on shallowness.** If a shortcut would make the project a tutorial clone rather than a genuine implementation, say so and propose the better path.
-- **Call out every simplification explicitly** — in code comments, README, and DECISIONS.md.
+- **Call out every simplification explicitly** — in code comments, README, and decisions.md.
 - **This will be on GitHub.** Code quality, documentation, and structure matter. This should look like serious engineering work.
 
 ---
@@ -89,7 +89,7 @@ gitinit/
 │   └── fixtures/             # pre-built binary objects for deterministic tests
 │
 ├── docs/
-│   ├── DECISIONS.md          # architectural decision log
+│   ├── decisions.md          # architectural decision log
 │   └── internals.md          # deep-dive on object model, index, refs (linked from README)
 │
 ├── CLAUDE.md                 # this file
@@ -289,7 +289,7 @@ committer <name> <<email>> <unix-timestamp> <timezone>
 ## Session Notes
 
 - Architecture and data structure design: complete (2026-04-05)
-- Documentation (CLAUDE.md, README.md, docs/DECISIONS.md): complete (2026-04-05)
+- Documentation (CLAUDE.md, README.md, docs/decisions.md): complete (2026-04-05)
 - Project scaffolding complete (2026-04-05): package.json, tsconfig.json, tsconfig.eslint.json, vitest.config.ts, eslint.config.js, .prettierrc, .prettierignore, .gitignore
 - `utils/` layer complete (2026-04-05): hash.ts, compress.ts, fs.ts — 21 tests, all passing
 - `objects/` layer complete (2026-04-05): types.ts, blob.ts, tree.ts, commit.ts — 32 tests, all passing

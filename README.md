@@ -6,7 +6,7 @@ A Git implementation in TypeScript, built from scratch. Real SHA-1 hashing, zlib
 
 ## Why This Exists
 
-Most "build your own Git" resources stop at a single blob and commit. This project goes further — working object store, staging index, branching, history traversal, working tree diffing, and eventually merge. Every architectural decision is documented in [docs/DECISIONS.md](docs/DECISIONS.md).
+Most "build your own Git" resources stop at a single blob and commit. This project goes further — working object store, staging index, branching, history traversal, working tree diffing, and merge. Every architectural decision is documented in [docs/decisions.md](docs/decisions.md).
 
 ---
 
@@ -73,7 +73,7 @@ Moving a branch forward means overwriting that file with a new hash. Creating a 
 **Prerequisites:** Node.js 20+
 
 ```bash
-git clone https://github.com/<your-username>/gitinit
+git clone https://github.com/kanjariasid22/gitinit
 cd gitinit
 npm install
 npm run build
@@ -152,11 +152,7 @@ No runtime dependencies beyond Commander. The core object model, storage, and ha
 
 ## Internals
 
-A technical deep-dive into the object model, wire formats, storage layout, and
-command internals is in [docs/internals.md](docs/internals.md).
-
-The architectural decisions behind every design choice are in
-[docs/DECISIONS.md](docs/DECISIONS.md).
+A technical deep-dive into the object model, wire formats, storage layout, and command internals is in [docs/internals.md](docs/internals.md). Architectural decisions are in [docs/decisions.md](docs/decisions.md).
 
 ---
 
