@@ -300,7 +300,8 @@ For a directory target, `readdir` recurses into all entries. For each file:
 5. After all files: `indexManager.writeIndex(index)`.
 
 Paths are normalised to forward slashes with `.replace(/\\/g, '/')`. No
-gitignore support — all files under the target path are staged.
+gitignore support — all files under the target path are staged, except
+`.gitinit/` which is always skipped during directory traversal.
 
 ### commit
 

@@ -53,7 +53,7 @@ Moving a branch forward means overwriting that file with a new hash. Creating a 
 | Command | Description | Status |
 |---------|-------------|--------|
 | `gitinit new` | Initialize a `.gitinit/` directory | Done |
-| `gitinit add <path>` | Stage a file or directory | Done |
+| `gitinit add <path>` | Stage a file, directory, or `.` for everything | Done |
 | `gitinit commit -m <msg>` | Create a commit from the current index | Done |
 | `gitinit log` | Walk and display the commit history | Done |
 | `gitinit status` | Show staged, unstaged, and untracked changes | Done |
@@ -91,11 +91,28 @@ gitinit commit -m "initial commit"
 gitinit log
 ```
 
-**Environment variables for commit identity:**
+**Author identity:**
+
+gitinit reads your name and email from environment variables. These are
+embedded in every `commit` and `merge` commit object. Without them, commits
+record `Unknown <unknown@example.com>`.
+
+Add to your shell profile (`~/.zshrc`, `~/.bashrc`) to make permanent:
 
 ```bash
+# bash / zsh / Git Bash
 export GITINIT_AUTHOR_NAME="Your Name"
 export GITINIT_AUTHOR_EMAIL="you@example.com"
+```
+
+```powershell
+# PowerShell — session only
+$env:GITINIT_AUTHOR_NAME = "Your Name"
+$env:GITINIT_AUTHOR_EMAIL = "you@example.com"
+
+# PowerShell — permanent (restart terminal after)
+[System.Environment]::SetEnvironmentVariable("GITINIT_AUTHOR_NAME", "Your Name", "User")
+[System.Environment]::SetEnvironmentVariable("GITINIT_AUTHOR_EMAIL", "you@example.com", "User")
 ```
 
 ---

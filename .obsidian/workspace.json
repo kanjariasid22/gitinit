@@ -183,8 +183,12 @@
       "bases:Create new base": false
     }
   },
-  "active": "441119c465d4efc1",
+  "active": "7020583abbf685a6",
   "lastOpenFiles": [
+    "README.md.tmp.23612.1775540191022",
+    "README.md.tmp.23612.1775540063941",
+    "docs/internals.md.tmp.23612.1775540055687",
+    "src/commands/add.ts.tmp.23612.1775539949328",
     "docs/internals.md.tmp.19324.1775539268449",
     "README.md.tmp.19324.1775539253386",
     "README.md.tmp.19324.1775539240005",
@@ -192,10 +196,7 @@
     "CLAUDE.md.tmp.19324.1775539033340",
     "package.json.tmp.19324.1775539011734",
     "README.md.tmp.19324.1775539002570",
-    "README.md.tmp.19324.1775538995026",
-    "README.md.tmp.19324.1775538985604",
     "docs/internals.md",
-    "docs/internals.md.tmp.19324.1775538943100",
     "docs/usage.md",
     "docs/DECISIONS.md",
     "README.md",

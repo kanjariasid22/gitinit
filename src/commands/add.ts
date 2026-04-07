@@ -44,6 +44,7 @@ async function addDirectory(
   let current = index
 
   for (const entry of entries) {
+    if (entry === '.gitinit') continue
     const fullPath = join(dirPath, entry)
     current = await addPath(repo, fullPath, current)
   }
