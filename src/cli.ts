@@ -2,6 +2,7 @@
 import { Command } from 'commander'
 import { cwd } from 'node:process'
 import { resolve as resolvePath } from 'node:path'
+import chalk from 'chalk'
 import { Repository } from './repository'
 import { init } from './commands/init'
 import { add } from './commands/add'
@@ -87,9 +88,9 @@ program
 
       for (const { hash, commit: c } of entries) {
         const date = new Date(c.author.timestamp * 1000).toUTCString()
-        console.log(`commit ${hash}`)
-        console.log(`Author: ${c.author.name} <${c.author.email}>`)
-        console.log(`Date:   ${date}`)
+        console.log(chalk.yellow(`commit ${hash}`))
+        console.log(chalk.dim(`Author: ${c.author.name} <${c.author.email}>`))
+        console.log(chalk.dim(`Date:   ${date}`))
         console.log()
         console.log(`    ${c.message}`)
         console.log()
@@ -132,20 +133,20 @@ program
 
       if (hasStaged) {
         console.log('\nChanges to be committed:')
-        for (const f of s.staged.added) console.log(`\tnew file:   ${f}`)
-        for (const f of s.staged.modified) console.log(`\tmodified:   ${f}`)
-        for (const f of s.staged.deleted) console.log(`\tdeleted:    ${f}`)
+        for (const f of s.staged.added) console.log(chalk.green(`\tnew file:   ${f}`))
+        for (const f of s.staged.modified) console.log(chalk.green(`\tmodified:   ${f}`))
+        for (const f of s.staged.deleted) console.log(chalk.green(`\tdeleted:    ${f}`))
       }
 
       if (hasUnstaged) {
         console.log('\nChanges not staged for commit:')
-        for (const f of s.unstaged.modified) console.log(`\tmodified:   ${f}`)
-        for (const f of s.unstaged.deleted) console.log(`\tdeleted:    ${f}`)
+        for (const f of s.unstaged.modified) console.log(chalk.red(`\tmodified:   ${f}`))
+        for (const f of s.unstaged.deleted) console.log(chalk.red(`\tdeleted:    ${f}`))
       }
 
       if (hasUntracked) {
         console.log('\nUntracked files:')
-        for (const f of s.untracked) console.log(`\t${f}`)
+        for (const f of s.untracked) console.log(chalk.red(`\t${f}`))
       }
     })
   })
@@ -179,7 +180,7 @@ branchCmd
         if (!name || opts.list) {
           const { branches, current } = await listBranches(repo)
           for (const b of branches) {
-            console.log(b === current ? `* ${b}` : `  ${b}`)
+            console.log(b === current ? chalk.green(`* ${b}`) : `  ${b}`)
           }
           return
         }
@@ -255,10 +256,10 @@ program
           console.log(`Merge made with the 'gitinit' strategy.`)
           break
         case 'conflict':
-          console.log('CONFLICT — automatic merge failed.')
+          console.log(chalk.red('CONFLICT — automatic merge failed.'))
           console.log('Fix conflicts and commit the result:')
           for (const f of result.conflicts) {
-            console.log(`\tboth modified: ${f}`)
+            console.log(chalk.red(`\tboth modified: ${f}`))
           }
           break
       }
@@ -296,25 +297,31 @@ async function run(action: () => Promise<void>): Promise<void> {
 /** Render a list of FileDiffs as a unified diff to stdout. */
 function printDiffs(diffs: FileDiff[]): void {
   for (const fileDiff of diffs) {
-    console.log(`diff --gitinit a/${fileDiff.path} b/${fileDiff.path}`)
+    console.log(chalk.bold(`diff --gitinit a/${fileDiff.path} b/${fileDiff.path}`))
 
     if (fileDiff.changeType === 'added') {
-      console.log('--- /dev/null')
-      console.log(`+++ b/${fileDiff.path}`)
+      console.log(chalk.dim('--- /dev/null'))
+      console.log(chalk.dim(`+++ b/${fileDiff.path}`))
     } else if (fileDiff.changeType === 'deleted') {
-      console.log(`--- a/${fileDiff.path}`)
-      console.log('+++ /dev/null')
+      console.log(chalk.dim(`--- a/${fileDiff.path}`))
+      console.log(chalk.dim('+++ /dev/null'))
     } else {
-      console.log(`--- a/${fileDiff.path}`)
-      console.log(`+++ b/${fileDiff.path}`)
+      console.log(chalk.dim(`--- a/${fileDiff.path}`))
+      console.log(chalk.dim(`+++ b/${fileDiff.path}`))
     }
 
     for (const hunk of fileDiff.hunks) {
       console.log(
-        `@@ -${hunk.oldStart},${hunk.oldCount} +${hunk.newStart},${hunk.newCount} @@`,
+        chalk.cyan(`@@ -${hunk.oldStart},${hunk.oldCount} +${hunk.newStart},${hunk.newCount} @@`),
       )
       for (const line of hunk.lines) {
-        console.log(`${line.kind}${line.content}`)
+        if (line.kind === '+') {
+          console.log(chalk.green(`${line.kind}${line.content}`))
+        } else if (line.kind === '-') {
+          console.log(chalk.red(`${line.kind}${line.content}`))
+        } else {
+          console.log(` ${line.content}`)
+        }
       }
     }
   }
