@@ -6,8 +6,8 @@
     "gitinit": "./dist/cli.js"
   },
   "scripts": {
-    "build": "tsc",
-    "dev": "tsc --watch",
+    "build": "node init && tsc",
+    "dev": "node init && tsc --watch",
     "test": "vitest",
     "test:run": "vitest run",
     "coverage": "vitest run --coverage",
